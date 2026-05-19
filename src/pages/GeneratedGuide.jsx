@@ -3,7 +3,7 @@ import { useSearchParams, Link } from 'react-router-dom';
 import { Printer, RefreshCw, ChevronDown, ChevronUp, ArrowLeft } from 'lucide-react';
 import Header from '../components/Header';
 import QuestionCard from '../components/QuestionCard';
-import { roles, seniorityLevels, questions, competencies, seniorityOrder } from '../data/demoData';
+import { roles, seniorityLevels, questions, competencies, seniorityOrder, nonNegotiables } from '../data/demoData';
 
 // Technical/craft competencies that aren't behavioral patterns. Questions can
 // still be tagged with these (the questions themselves are behavioral), but we
@@ -18,21 +18,6 @@ const NON_BEHAVIORAL_COMPETENCY_KEYS = new Set([
   'procdoc',      // Process Documentation
   'dataanalysis', // Data Analysis
 ]);
-
-// The Focus non-negotiables. Every Focus hire clears this bar regardless of role
-// or seniority. This is a values statement, not a function of question coverage.
-const NON_NEGOTIABLES = [
-  'Adaptability',
-  'Ownership',
-  'Mission Alignment',
-  'Communication',
-  'Collaboration',
-  'No Assholes',
-  'Stakeholder Navigation',
-  'Professionalism',
-  'Conflict Management',
-  'Lean Product Development / User-Centered Design / Prioritization',
-];
 
 // Fisher-Yates shuffle
 function shuffleArray(array) {
@@ -229,7 +214,7 @@ export default function GeneratedGuide() {
               things get hard.
             </p>
             <ul className="bucket-tags">
-              {NON_NEGOTIABLES.map(name => (
+              {nonNegotiables.map(({ name }) => (
                 <li key={name}>{name}</li>
               ))}
             </ul>

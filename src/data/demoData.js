@@ -1,4 +1,21 @@
 // Demo data for development - mirrors Supabase structure
+
+// The Focus non-negotiables. Every Focus hire clears this bar regardless of
+// role or seniority. This is a values statement, not a function of which
+// questions were sampled into a given guide.
+export const nonNegotiables = [
+  { name: 'Adaptability', description: "Adjusts when the ground shifts — new requirements, new stakeholders, new constraints — without losing forward momentum." },
+  { name: 'Ownership', description: "Treats the outcome as theirs. Doesn't wait to be told. Closes loops." },
+  { name: 'Mission Alignment', description: "Cares about the work itself, not just the paycheck. Makes choices that move the mission forward when no one's watching." },
+  { name: 'Communication', description: "Says the real thing, to the right audience, in the right setting. Writes and speaks with clarity, not jargon." },
+  { name: 'Collaboration', description: "Makes the people around them better. Doesn't hoard credit, context, or decisions." },
+  { name: 'Decency', description: "Treats teammates, clients, and partners with respect — always. Brilliance is never a license to be corrosive." },
+  { name: 'Stakeholder Navigation', description: "Reads the room. Manages up, across, and down. Builds trust with people whose priorities differ from theirs." },
+  { name: 'Professionalism', description: "Reliable, prepared, and composed. Honors commitments. Represents Focus well in any room." },
+  { name: 'Conflict Management', description: "Pulls disagreement into the open early. Doesn't let things fester. Disagrees without damaging the relationship." },
+  { name: 'Lean Product Development / User-Centered Design / Prioritization', description: "Anchors decisions on user value. Ships the smallest thing that proves the bet. Knows what to cut." },
+];
+
 export const roles = [
   { id: 'tpm', name: 'Technical Program Manager', description: 'Drives complex technical programs across teams, managing dependencies, risks, and stakeholder communication.' },
   { id: 'tprm', name: 'Technical Product Manager', description: 'Defines product vision and strategy, balancing user needs, technical feasibility, and policy constraints.' },

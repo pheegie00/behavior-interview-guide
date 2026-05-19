@@ -1,4 +1,5 @@
 import Header from '../components/Header';
+import { nonNegotiables } from '../data/demoData';
 
 export default function BestPractices() {
   return (
@@ -12,6 +13,25 @@ export default function BestPractices() {
             Structured behavioral interviewing helps predict job performance better than 
             unstructured conversations. Here's how to get the most out of your interview guides.
           </p>
+
+          <section>
+            <h2>The Focus Non-Negotiables</h2>
+            <p>
+              Every Focus hire, regardless of role or seniority, has to clear
+              this bar. These are the qualities that determine whether someone
+              can be trusted with a client, a teammate, or a deliverable when
+              things get hard. If a candidate is below the bar on any of these,
+              skill and experience don't compensate.
+            </p>
+            <div className="nonneg-grid">
+              {nonNegotiables.map(({ name, description }) => (
+                <div key={name} className="nonneg-card">
+                  <h4>{name}</h4>
+                  <p>{description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
 
           <section>
             <h2>The STAR Framework</h2>
@@ -341,6 +361,33 @@ export default function BestPractices() {
           color: var(--gray-600);
         }
 
+        .nonneg-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1rem;
+          margin-top: 1.5rem;
+        }
+
+        .nonneg-card {
+          padding: 1.25rem;
+          background: var(--cream);
+          border-left: 4px solid var(--coral, var(--teal));
+          border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        }
+
+        .nonneg-card h4 {
+          color: var(--navy);
+          margin-bottom: 0.5rem;
+          font-size: 1rem;
+        }
+
+        .nonneg-card p {
+          margin: 0;
+          font-size: 0.9375rem;
+          color: var(--gray-700);
+          line-height: 1.6;
+        }
+
         .lens-grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
@@ -464,7 +511,8 @@ export default function BestPractices() {
         
         @media (max-width: 768px) {
           .principles-grid,
-          .lens-grid {
+          .lens-grid,
+          .nonneg-grid {
             grid-template-columns: 1fr;
           }
           

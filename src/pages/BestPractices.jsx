@@ -114,43 +114,53 @@ export default function BestPractices() {
             <div className="lens-grid">
               <div className="lens-card">
                 <h4>Mission Fit (No Jerks)</h4>
-                <p>Talent does not buy a pass on how someone treats people. Mission fit is non-negotiable.</p>
+                <p className="lens-principle">Talent does not buy a pass on how someone treats people. Mission fit is non-negotiable.</p>
+                <p className="lens-listen"><strong>What to listen for:</strong> Stories where they made the hard call on a talented-but-corrosive teammate. Quick to name the cost to the team, not just the output.</p>
               </div>
               <div className="lens-card">
                 <h4>Multiplier Mindset</h4>
-                <p>Being a lead is not about doing the most work. It is about making everyone around you more effective.</p>
+                <p className="lens-principle">Being a lead is not about doing the most work. It is about making everyone around you more effective.</p>
+                <p className="lens-listen"><strong>What to listen for:</strong> Stretches where they intentionally did less hands-on work so the team could grow. Pride in team output over personal heroics. Honest &ldquo;I&rdquo; vs. &ldquo;we.&rdquo;</p>
               </div>
               <div className="lens-card">
                 <h4>Giving Feedback That Lands</h4>
-                <p>Feedback that is vague, delayed, or delivered in the wrong setting does not just fail &mdash; it actively erodes trust.</p>
+                <p className="lens-principle">Feedback that is vague, delayed, or delivered in the wrong setting does not just fail &mdash; it actively erodes trust.</p>
+                <p className="lens-listen"><strong>What to listen for:</strong> Specifics on timing, setting, and follow-up. Self-reflection on feedback that didn't land and what they changed. Feedback as routine, not event.</p>
               </div>
               <div className="lens-card">
                 <h4>The 1:1 That Actually Works</h4>
-                <p>A 1:1 is not a status update. It is the primary tool you have for understanding what is happening with and on your team.</p>
+                <p className="lens-principle">A 1:1 is not a status update. It is the primary tool you have for understanding what is happening with and on your team.</p>
+                <p className="lens-listen"><strong>What to listen for:</strong> A structure that protects the time. Examples where 1:1s surfaced something a status meeting never would. Adapts the format per report.</p>
               </div>
               <div className="lens-card">
                 <h4>Cross-Functional Trust</h4>
-                <p>You cannot ship anything alone. The leads who build cross-functional trust get things done. The ones who do not become blockers.</p>
+                <p className="lens-principle">You cannot ship anything alone. The leads who build cross-functional trust get things done. The ones who do not become blockers.</p>
+                <p className="lens-listen"><strong>What to listen for:</strong> Named partners who'd go to bat for them. Moments they invested in the relationship when transactional was easier. Unblocking without escalating.</p>
               </div>
               <div className="lens-card">
                 <h4>Managing Conflict Directly</h4>
-                <p>Conflict that is avoided does not go away. It goes underground, where it does more damage.</p>
+                <p className="lens-principle">Conflict that is avoided does not go away. It goes underground, where it does more damage.</p>
+                <p className="lens-listen"><strong>What to listen for:</strong> Conflicts they noticed before they boiled over. Direct conversations they didn't enjoy but had anyway. Honesty about the cost of waiting too long.</p>
               </div>
               <div className="lens-card">
                 <h4>Accountability Without Authority</h4>
-                <p>You cannot make people do things. You can make it very clear what is expected and what happens. Escalating everything is not leadership. Neither is absorbing everything. Judgment is the skill.</p>
+                <p className="lens-principle">You cannot make people do things. You can make it very clear what is expected and what happens. Escalating everything is not leadership. Neither is absorbing everything. Judgment is the skill.</p>
+                <p className="lens-listen"><strong>What to listen for:</strong> Clear expectations, clear consequences, and judgment on when to escalate vs. handle it. Comfort operating without positional power.</p>
               </div>
               <div className="lens-card">
                 <h4>Psychological Safety</h4>
-                <p>Psychological safety is not about being nice. It is about whether people believe it is safe to take risks, speak up, and be wrong.</p>
+                <p className="lens-principle">Psychological safety is not about being nice. It is about whether people believe it is safe to take risks, speak up, and be wrong.</p>
+                <p className="lens-listen"><strong>What to listen for:</strong> Specific moments someone on their team took a real risk in front of the group. What they had done to make that possible. How they responded.</p>
               </div>
               <div className="lens-card">
                 <h4>Coaching vs. Performance</h4>
-                <p>Treating a performance problem like a coaching opportunity is unfair to the team. Treating a coaching opportunity like a performance problem is unfair to the person.</p>
+                <p className="lens-principle">Treating a performance problem like a coaching opportunity is unfair to the team. Treating a coaching opportunity like a performance problem is unfair to the person.</p>
+                <p className="lens-listen"><strong>What to listen for:</strong> A clean distinction between the two. Honest reflection on times they got the call wrong. A framework that's teachable to other leads.</p>
               </div>
               <div className="lens-card">
                 <h4>Your Brand Under Pressure</h4>
-                <p>How you show up when things are hard is your leadership brand. Not when things are easy.</p>
+                <p className="lens-principle">How you show up when things are hard is your leadership brand. Not when things are easy.</p>
+                <p className="lens-listen"><strong>What to listen for:</strong> A specific hard week. Gap between how they felt and how they led. What they did to keep the weight off the team.</p>
               </div>
             </div>
           </section>
@@ -413,6 +423,27 @@ export default function BestPractices() {
           font-size: 0.9375rem;
           color: var(--gray-700);
           line-height: 1.6;
+        }
+
+        .lens-card .lens-principle {
+          font-style: italic;
+          color: var(--gray-600);
+          margin-bottom: 0.75rem;
+          padding-left: 0.75rem;
+          border-left: 2px solid var(--teal);
+        }
+
+        .lens-card .lens-listen {
+          color: var(--gray-700);
+        }
+
+        .lens-card .lens-listen strong {
+          color: var(--navy);
+          display: block;
+          font-size: 0.75rem;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          margin-bottom: 0.25rem;
         }
 
         .red-flags li {

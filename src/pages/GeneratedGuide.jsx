@@ -32,12 +32,17 @@ function shuffleArray(array) {
 // Generate questions for a role and seniority
 function generateQuestions(roleId, seniorityId, count = 12) {
   const seniorityNum = seniorityOrder[seniorityId];
-  
-  // Filter questions applicable to this role and seniority
+
+  // Filter questions applicable to this role and seniority. Also exclude any
+  // question whose tags are entirely non-behavioral — this is a behavioral
+  // interview, not a technical one. A question with at least one behavioral
+  // tag (e.g. collab, growth, owner) stays even if it also references a
+  // technical subject area.
   const eligible = questions.filter(q => {
     const isRoleMatch = q.applicableRoles.includes(roleId);
     const isSeniorityMatch = seniorityOrder[q.minimumSeniority] <= seniorityNum;
-    return isRoleMatch && isSeniorityMatch;
+    const isBehavioral = q.competencies.some(c => !NON_BEHAVIORAL_COMPETENCY_KEYS.has(c));
+    return isRoleMatch && isSeniorityMatch && isBehavioral;
   });
   
   // Shuffle and take top N

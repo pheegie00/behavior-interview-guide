@@ -5,6 +5,21 @@ import Header from '../components/Header';
 import QuestionCard from '../components/QuestionCard';
 import { roles, seniorityLevels, questions, competencies, seniorityOrder } from '../data/demoData';
 
+// The Focus non-negotiables. Every Focus hire clears this bar regardless of role
+// or seniority. This is a values statement, not a function of question coverage.
+const NON_NEGOTIABLES = [
+  'Adaptability',
+  'Ownership',
+  'Mission Alignment',
+  'Communication',
+  'Collaboration',
+  'No Assholes',
+  'Stakeholder Navigation',
+  'Professionalism',
+  'Conflict Management',
+  'Lean Product Development / User-Centered Design / Prioritization',
+];
+
 // Fisher-Yates shuffle
 function shuffleArray(array) {
   const shuffled = [...array];
@@ -190,22 +205,20 @@ export default function GeneratedGuide() {
             high-stakes, cross-functional environments our work lives in.
           </p>
 
-          {competencyBuckets.universal.length > 0 && (
-            <div className="bucket">
-              <h3>The non-negotiables</h3>
-              <p>
-                Every Focus hire, regardless of role or seniority, has to clear
-                this bar. These are the qualities that determine whether
-                someone can be trusted with a client, a teammate, or a
-                deliverable when things get hard.
-              </p>
-              <ul className="bucket-tags">
-                {competencyBuckets.universal.map(name => (
-                  <li key={name}>{name}</li>
-                ))}
-              </ul>
-            </div>
-          )}
+          <div className="bucket bucket-nonneg">
+            <h3>The non-negotiables</h3>
+            <p>
+              Every Focus hire, regardless of role or seniority, has to clear
+              this bar. These are the qualities that determine whether someone
+              can be trusted with a client, a teammate, or a deliverable when
+              things get hard.
+            </p>
+            <ul className="bucket-tags">
+              {NON_NEGOTIABLES.map(name => (
+                <li key={name}>{name}</li>
+              ))}
+            </ul>
+          </div>
 
           {competencyBuckets.role_specific.length > 0 && (
             <div className="bucket">
@@ -406,6 +419,10 @@ export default function GeneratedGuide() {
 
         .bucket-leadership {
           border-left: 4px solid var(--teal);
+        }
+
+        .bucket-nonneg {
+          border-left: 4px solid var(--coral, var(--teal));
         }
 
         .bucket h3 {

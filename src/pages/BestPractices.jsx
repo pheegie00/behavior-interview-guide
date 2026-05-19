@@ -85,6 +85,57 @@ export default function BestPractices() {
           </section>
 
           <section>
+            <h2>Leadership Lens</h2>
+            <p>
+              For lead and senior roles, listen for these ten things. They are how we
+              tell the difference between someone who does the most work and someone
+              who makes everyone around them more effective.
+            </p>
+            <div className="lens-grid">
+              <div className="lens-card">
+                <h4>Mission Fit (No Jerks)</h4>
+                <p>Talent does not buy a pass on how someone treats people. Mission fit is non-negotiable.</p>
+              </div>
+              <div className="lens-card">
+                <h4>Multiplier Mindset</h4>
+                <p>Being a lead is not about doing the most work. It is about making everyone around you more effective.</p>
+              </div>
+              <div className="lens-card">
+                <h4>Giving Feedback That Lands</h4>
+                <p>Feedback that is vague, delayed, or delivered in the wrong setting does not just fail &mdash; it actively erodes trust.</p>
+              </div>
+              <div className="lens-card">
+                <h4>The 1:1 That Actually Works</h4>
+                <p>A 1:1 is not a status update. It is the primary tool you have for understanding what is happening with and on your team.</p>
+              </div>
+              <div className="lens-card">
+                <h4>Cross-Functional Trust</h4>
+                <p>You cannot ship anything alone. The leads who build cross-functional trust get things done. The ones who do not become blockers.</p>
+              </div>
+              <div className="lens-card">
+                <h4>Managing Conflict Directly</h4>
+                <p>Conflict that is avoided does not go away. It goes underground, where it does more damage.</p>
+              </div>
+              <div className="lens-card">
+                <h4>Accountability Without Authority</h4>
+                <p>You cannot make people do things. You can make it very clear what is expected and what happens. Escalating everything is not leadership. Neither is absorbing everything. Judgment is the skill.</p>
+              </div>
+              <div className="lens-card">
+                <h4>Psychological Safety</h4>
+                <p>Psychological safety is not about being nice. It is about whether people believe it is safe to take risks, speak up, and be wrong.</p>
+              </div>
+              <div className="lens-card">
+                <h4>Coaching vs. Performance</h4>
+                <p>Treating a performance problem like a coaching opportunity is unfair to the team. Treating a coaching opportunity like a performance problem is unfair to the person.</p>
+              </div>
+              <div className="lens-card">
+                <h4>Your Brand Under Pressure</h4>
+                <p>How you show up when things are hard is your leadership brand. Not when things are easy.</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
             <h2>Red Flags to Watch For</h2>
             <ul className="red-flags">
               <li>Can't provide specific examples (vague "we usually..." responses)</li>
@@ -289,7 +340,34 @@ export default function BestPractices() {
           font-size: 0.875rem;
           color: var(--gray-600);
         }
-        
+
+        .lens-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1rem;
+          margin-top: 1.5rem;
+        }
+
+        .lens-card {
+          padding: 1.25rem;
+          background: var(--cream);
+          border-left: 4px solid var(--teal);
+          border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        }
+
+        .lens-card h4 {
+          color: var(--navy);
+          margin-bottom: 0.5rem;
+          font-size: 1rem;
+        }
+
+        .lens-card p {
+          margin: 0;
+          font-size: 0.9375rem;
+          color: var(--gray-700);
+          line-height: 1.6;
+        }
+
         .red-flags li {
           color: var(--gray-700);
         }
@@ -385,7 +463,8 @@ export default function BestPractices() {
         }
         
         @media (max-width: 768px) {
-          .principles-grid {
+          .principles-grid,
+          .lens-grid {
             grid-template-columns: 1fr;
           }
           

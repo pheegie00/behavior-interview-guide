@@ -6,15 +6,11 @@ import QuestionCard from '../components/QuestionCard';
 import { roles, seniorityLevels, questions, competencies, seniorityOrder, nonNegotiables } from '../data/demoData';
 
 // Technical/craft competencies that aren't behavioral patterns. Questions can
-// still be tagged with these (the questions themselves are behavioral), but we
-// don't surface them as "what we're listening for" on this behavioral guide.
+// still be tagged with these (the question itself is behavioral, e.g. how
+// someone approaches documentation), but we don't surface them as "what we're
+// listening for" on this behavioral guide.
 const NON_BEHAVIORAL_COMPETENCY_KEYS = new Set([
   'feasib',       // Technical Feasibility
-  'techprob',     // Technical Problem Solving
-  'codequal',     // Code Quality
-  'access',       // Accessibility Compliance
-  'security',     // Security Compliance
-  'accessdesign', // Accessibility Design
   'procdoc',      // Process Documentation
   'dataanalysis', // Data Analysis
 ]);

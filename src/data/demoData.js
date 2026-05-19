@@ -58,13 +58,8 @@ export const competencies = {
   prior: { name: 'Prioritization', category: 'role_specific' },
   outcome: { name: 'Outcome Definition', category: 'role_specific' },
   feasib: { name: 'Technical Feasibility', category: 'role_specific' },
-  techprob: { name: 'Technical Problem Solving', category: 'role_specific' },
-  codequal: { name: 'Code Quality', category: 'role_specific' },
-  access: { name: 'Accessibility Compliance', category: 'role_specific' },
-  security: { name: 'Security Compliance', category: 'role_specific' },
   knowledge: { name: 'Knowledge Transfer', category: 'role_specific' },
   userdesign: { name: 'User-Centered Design', category: 'role_specific' },
-  accessdesign: { name: 'Accessibility Design', category: 'role_specific' },
   iterate: { name: 'Iterative Improvement', category: 'role_specific' },
   require: { name: 'Requirements Elicitation', category: 'role_specific' },
   procdoc: { name: 'Process Documentation', category: 'role_specific' },
@@ -122,9 +117,10 @@ export const questions = [
   { id: 'tprm-m-1', text: "Describe saying no to a stakeholder request.", minimumSeniority: 'mid', questionType: 'star', competencies: ['prior', 'stake', 'comm'], applicableRoles: ['tprm'], followUpProbes: ["What was the request and why no?", "How did you communicate?"], rubric: { score1: "Couldn't say no; or damaged relationship", score2: "Said no but stakeholder unhappy", score3: "Clear, empathetic no; relationship preserved", score4: "Turned no into constructive conversation" }},
   { id: 'tprm-s-1', text: "Describe a product strategy you validated before significant investment.", minimumSeniority: 'senior', questionType: 'star', competencies: ['outcome', 'feasib', 'research'], applicableRoles: ['tprm'], followUpProbes: ["What validation methods?", "How did validation change your approach?"], rubric: { score1: "Strategy not validated; assumptions wrong", score2: "Some validation but gaps remained", score3: "Systematic validation; successful launch", score4: "Created validation framework; exceeded expectations" }},
   
-  // ENGINEERS (behavioral patterns only — technical skill is assessed elsewhere)
-  { id: 'eng-j-2', text: "Describe receiving critical code review feedback.", minimumSeniority: 'junior', questionType: 'star', competencies: ['codequal', 'collab', 'growth'], applicableRoles: ['fullstack', 'infra', 'frontend', 'data', 'ml'], followUpProbes: ["What was the feedback?", "How did you respond?"], rubric: { score1: "Defensive; didn't improve", score2: "Incorporated reluctantly", score3: "Accepted constructively; improved code", score4: "Sought additional feedback; leveled up" }},
-  { id: 'eng-s-2', text: "Describe mentoring a junior engineer through a challenging problem.", minimumSeniority: 'senior', questionType: 'star', competencies: ['knowledge', 'collab'], applicableRoles: ['fullstack', 'infra', 'frontend', 'data', 'ml'], followUpProbes: ["How did you balance guidance vs. letting them struggle?", "What did they learn?"], rubric: { score1: "Did work themselves; or left struggling without support", score2: "Some teaching but inconsistent", score3: "Effective balance; mentee grew", score4: "Developed systematic approach; built learning culture" }},
+  // Engineering, infra, data, and ML roles are assessed in this guide
+  // through the universal + leadership questions only. Technical skill
+  // (problem solving, code quality, architecture, etc.) is the wrong
+  // subject for a behavioral interview and should be assessed separately.
 
   // DESIGNERS
   { id: 'des-j-1', text: "Tell me about receiving critical feedback on your design.", minimumSeniority: 'junior', questionType: 'star', competencies: ['iterate', 'collab', 'growth'], applicableRoles: ['service', 'ux', 'content'], followUpProbes: ["What was the feedback?", "What changes did you make?"], rubric: { score1: "Defensive; didn't improve design", score2: "Incorporated reluctantly", score3: "Clarified feedback; improved thoughtfully", score4: "Used feedback to level up; helped others" }},

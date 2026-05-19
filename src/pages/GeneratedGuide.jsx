@@ -86,6 +86,21 @@ export default function GeneratedGuide() {
     guideQuestions.forEach(q => q.competencies.forEach(c => comps.add(c)));
     return Array.from(comps).map(c => competencies[c]?.name || c);
   }, [guideQuestions]);
+
+  // Bucket competencies by category for the assessment overview
+  const competencyBuckets = useMemo(() => {
+    const buckets = { universal: [], role_specific: [], leadership: [] };
+    const seen = new Set();
+    guideQuestions.forEach(q => q.competencies.forEach(c => {
+      if (seen.has(c)) return;
+      seen.add(c);
+      const def = competencies[c];
+      if (!def) return;
+      const bucket = buckets[def.category];
+      if (bucket) bucket.push(def.name);
+    }));
+    return buckets;
+  }, [guideQuestions]);
   
   if (!role) {
     return (
@@ -164,6 +179,78 @@ export default function GeneratedGuide() {
           </div>
         </div>
         
+        {/* Why this matters at Focus */}
+        <section className="assessment-intro">
+          <h2>What we're listening for &mdash; and why it matters at Focus</h2>
+          <p className="intro-lead">
+            Focus exists to do hard, mission-driven work for clients who hire us
+            because they trust us with problems they can't afford to get wrong.
+            The qualities below are the ones that predict whether someone will
+            actually thrive here &mdash; not just on paper, but in the messy,
+            high-stakes, cross-functional environments our work lives in.
+          </p>
+
+          {competencyBuckets.universal.length > 0 && (
+            <div className="bucket">
+              <h3>The non-negotiables</h3>
+              <p>
+                Every Focus hire, regardless of role or seniority, has to clear
+                this bar. These are the qualities that determine whether
+                someone can be trusted with a client, a teammate, or a
+                deliverable when things get hard.
+              </p>
+              <ul className="bucket-tags">
+                {competencyBuckets.universal.map(name => (
+                  <li key={name}>{name}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {competencyBuckets.role_specific.length > 0 && (
+            <div className="bucket">
+              <h3>The craft for this role</h3>
+              <p>
+                {role?.name} at Focus need to demonstrate specific competence
+                in the areas below. We assess these because they're what the
+                role actually requires day-to-day &mdash; not because they
+                sound impressive on a resume.
+              </p>
+              <ul className="bucket-tags">
+                {competencyBuckets.role_specific.map(name => (
+                  <li key={name}>{name}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {competencyBuckets.leadership.length > 0 && (
+            <div className="bucket bucket-leadership">
+              <h3>The leadership lens</h3>
+              <p>
+                For senior and lead roles, technical skill isn't enough. We
+                assess whether someone will make the people around them more
+                effective &mdash; or quietly make the team worse. These are
+                the ten things we listen for, because they're the difference
+                between a high performer and a multiplier.
+              </p>
+              <ul className="bucket-tags">
+                {competencyBuckets.leadership.map(name => (
+                  <li key={name}>{name}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <p className="intro-close">
+            A few notes for the interviewer: probe for specifics, not slogans.
+            Listen for &ldquo;I&rdquo; vs. &ldquo;we.&rdquo; Score on evidence,
+            not polish. And remember the seniority calibration &mdash; we're
+            assessing whether they can do <em>this</em> role, not whether
+            they're impressive in the abstract.
+          </p>
+        </section>
+
         {/* Questions */}
         <div className="questions-list">
           {guideQuestions.map((question, index) => (
@@ -288,6 +375,79 @@ export default function GeneratedGuide() {
           color: var(--gray-600);
         }
         
+        .assessment-intro {
+          background: var(--white);
+          border-radius: var(--radius-md);
+          padding: 2rem;
+          margin: 1.5rem 0 2rem;
+        }
+
+        .assessment-intro h2 {
+          font-size: 1.375rem;
+          color: var(--navy);
+          margin-bottom: 0.75rem;
+          padding-bottom: 0.5rem;
+          border-bottom: 2px solid var(--teal);
+        }
+
+        .intro-lead {
+          font-size: 1rem;
+          color: var(--gray-700);
+          line-height: 1.7;
+          margin-bottom: 1.5rem;
+        }
+
+        .bucket {
+          padding: 1rem 1.25rem;
+          background: var(--cream);
+          border-radius: var(--radius-md);
+          margin-bottom: 1rem;
+        }
+
+        .bucket-leadership {
+          border-left: 4px solid var(--teal);
+        }
+
+        .bucket h3 {
+          font-size: 1rem;
+          color: var(--navy);
+          margin-bottom: 0.5rem;
+        }
+
+        .bucket p {
+          font-size: 0.9375rem;
+          color: var(--gray-700);
+          line-height: 1.6;
+          margin: 0 0 0.75rem;
+        }
+
+        .bucket-tags {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.4rem;
+        }
+
+        .bucket-tags li {
+          display: inline-block;
+          padding: 0.2rem 0.6rem;
+          background: var(--white);
+          border: 1px solid var(--gray-200);
+          border-radius: var(--radius-sm);
+          font-size: 0.8125rem;
+          color: var(--gray-700);
+        }
+
+        .intro-close {
+          margin-top: 1.25rem;
+          font-size: 0.9375rem;
+          color: var(--gray-600);
+          line-height: 1.6;
+          font-style: italic;
+        }
+
         .questions-list {
           padding: 1rem 0 3rem;
         }

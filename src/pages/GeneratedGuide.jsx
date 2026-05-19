@@ -5,6 +5,20 @@ import Header from '../components/Header';
 import QuestionCard from '../components/QuestionCard';
 import { roles, seniorityLevels, questions, competencies, seniorityOrder } from '../data/demoData';
 
+// Technical/craft competencies that aren't behavioral patterns. Questions can
+// still be tagged with these (the questions themselves are behavioral), but we
+// don't surface them as "what we're listening for" on this behavioral guide.
+const NON_BEHAVIORAL_COMPETENCY_KEYS = new Set([
+  'feasib',       // Technical Feasibility
+  'techprob',     // Technical Problem Solving
+  'codequal',     // Code Quality
+  'access',       // Accessibility Compliance
+  'security',     // Security Compliance
+  'accessdesign', // Accessibility Design
+  'procdoc',      // Process Documentation
+  'dataanalysis', // Data Analysis
+]);
+
 // The Focus non-negotiables. Every Focus hire clears this bar regardless of role
 // or seniority. This is a values statement, not a function of question coverage.
 const NON_NEGOTIABLES = [
@@ -109,6 +123,7 @@ export default function GeneratedGuide() {
     guideQuestions.forEach(q => q.competencies.forEach(c => {
       if (seen.has(c)) return;
       seen.add(c);
+      if (NON_BEHAVIORAL_COMPETENCY_KEYS.has(c)) return;
       const def = competencies[c];
       if (!def) return;
       const bucket = buckets[def.category];
